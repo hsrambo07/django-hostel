@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+.deactive {
+  background-color: red;
+}
+</style>
+</head>
+<body style="background-color: black; color: white;">
+
+<ul>
+  <li><a class="active" href="{% url 'student'  %}">Student</a></li>
+  <li><a class="active" href="{% url 'parent'  %}">Parent</a></li>
+  <li><a class="active" href="{% url 'warden'  %}">Warden</a></li>
+  <li><a class="active" href="{% url 'room'  %}">Room</a></li>
+  <li><a class="active" href="{% url 'mess'  %}">Mess</a></li>
+  <li><a class="active" href="{% url 'block'  %}">Block</a></li>
+  <li><a class="deactive" href="{% url 'retrieve'  %}">Retrieve data</a></li>
+
+</ul>
+{% block content %}
+<br><br><br>
+{% endblock %}
+</body>
+</html>

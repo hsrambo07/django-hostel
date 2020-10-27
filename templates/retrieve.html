@@ -1,0 +1,71 @@
+{% extends "base.html" %} 
+<!doctype html>
+<html>
+  <body>
+{% block content %}
+<td style="font-weight: bold;"><b>   Registration no.</b></td>
+      </tr>
+      <tr style="font-weight: bold;"> 
+        <td> <b>  Name</b></td>
+        <td>  <b> Address</b> </td>
+        <td>  <b> contact</b> </td>
+        <td>   <b>DOB</b> </td>
+        <td>   <b>School</b> </td>
+        <td>  <b> program </b></td>
+        <td>  <b> parent name </b></td>
+        <td>   <b>parent contact </b></td>
+        <td>   <b>parent address</b> </td><br>
+      </tr><br>
+      <tr>
+        <td>  {% for s in detail %} </td>
+        <td>   {{ s.reg_no }} </td>
+      </tr>
+      <tr> 
+        <td>   {{ s.s_name}} </td>
+        <td>   {{ s.s_address}} </td>
+        <td>   {{ s.s_contact}} </td>
+        <td>   {{ s.s_dob}} </td>
+        <td>   {{ s.s_school}} </td>
+        <td>   {{ s.s_proram}} </td>
+        <td>   {{ s.parent_name.p_name}} </td>
+        <td>   {{ s.parent_name.p_contact}} </td>
+        <td>   {{ s.parent_name.p_address}} </td><br>
+        {% endfor %} 
+      </tr>    
+      
+      <br>
+      <br>
+<form action="{% url 'retrieve' %}">
+{% csrf_token %}
+  <label>Enter registration number</label>
+  <input type="text" name="reg" required>
+  <button type="submit">Retrieve now</button>
+
+</form>
+{% if datas %}
+
+<tr>
+  <td>  {% for s1 in datas %} </td>
+  <td>   {{ s1.reg_no }} </td>
+</tr>
+<tr> 
+  <td>   {{ s1.s_name}} </td>
+  <td>   {{ s1.s_address}} </td>
+  <td>   {{ s1.s_contact}} </td>
+  <td>   {{ s1.s_dob}} </td>
+  <td>   {{ s1.s_school}} </td>
+  <td>   {{ s1.s_proram}} </td>
+  <td>   {{ s1.parent_name.p_name}} </td>
+  <td>   {{ s1.parent_name.p_contact}} </td>
+  <td>   {{ s1.parent_name.p_address}} </td><br>
+  {% endfor %} 
+
+{%  else %}
+  <p> {{error}}</p>
+
+{% endif %}
+</tr> 
+
+{% endblock %}
+    </body>
+</html>

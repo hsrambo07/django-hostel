@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% block content %}
+<!doctype html>
+<h1>Your form was successfully submitted!! yaaaaay</h1>
+<script>
+    setTimeout(function(){
+       window.location.href = '/info/home/';
+    }, 5000);
+ </script>
+ <p>Web page will redirect to home after 5 seconds.</p>
+
+ {% endblock %}
