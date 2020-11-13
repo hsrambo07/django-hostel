@@ -4,16 +4,18 @@ This project was made as a part of the Project Component of Course: Database Man
 
 - To run the program
 
-'''
+''
+
  pip3 install -r requirements.txt
  python3 manage.py runserver
  or
  - create super user
  python3 manage.py createsuperuser
  python3 manage.py runserver
-'''
 
-- Future improvement:
- Using APIs to perform CRUD operations
+''
+
+Future improvement
+ -Using APIs to perform CRUD operations
 
 Thank you
