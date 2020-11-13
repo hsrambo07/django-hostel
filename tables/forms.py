@@ -31,3 +31,16 @@ class RoomForm(forms.ModelForm):
     class Meta:  
         model = Room  
         fields = "__all__"  
+
+
+class UpdateStudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('reg_no','s_name','s_address','s_contact') #Note that we didn't mention user field here.
+
+    def save(self, force_insert=False,force_update=False,commit=True):
+        student_profiles = super(UpdateStudentForm, self).save(commit=False)
+        if commit:
+            student_profiles.save()
+        return student_profiles
+

@@ -1,3 +1,4 @@
+
 {% extends "base.html" %} 
 <!doctype html>
 <html>
@@ -26,17 +27,27 @@
         <td>   {{ s.s_contact}} </td>
         <td>   {{ s.s_dob}} </td>
         <td>   {{ s.s_school}} </td>
-        <td>   {{ s.s_proram}} </td>
+        <td>   {{ s.s_program}} </td>
         <td>   {{ s.parent_name.p_name}} </td>
         <td>   {{ s.parent_name.p_contact}} </td>
         <td>   {{ s.parent_name.p_address}} </td><br>
+        
+        <p style="color: rgb(235, 30, 15);">Delete this record? </p>
+          <form action="{% url 'delete' %}">   
+            <input type="hidden"  name="del" value="{{s.reg_no}}"> 
+            <button type="submit">delete</button>
+          </form>   
+          <form action="{% url 'update' %}">   
+            <input type="hidden"  name="update" value="{{s.reg_no}}"> 
+            <button type="submit">Update details</button>
+          </form>   
+          <br>  
         {% endfor %} 
       </tr>    
       
       <br>
       <br>
 <form action="{% url 'retrieve' %}">
-{% csrf_token %}
   <label>Enter registration number</label>
   <input type="text" name="reg" required>
   <button type="submit">Retrieve now</button>
@@ -54,7 +65,7 @@
   <td>   {{ s1.s_contact}} </td>
   <td>   {{ s1.s_dob}} </td>
   <td>   {{ s1.s_school}} </td>
-  <td>   {{ s1.s_proram}} </td>
+  <td>   {{ s1.s_program}} </td>
   <td>   {{ s1.parent_name.p_name}} </td>
   <td>   {{ s1.parent_name.p_contact}} </td>
   <td>   {{ s1.parent_name.p_address}} </td><br>
@@ -65,7 +76,14 @@
 
 {% endif %}
 </tr> 
-
+<form action="{% url 'retrieve' %}">
+    <label>Enter registration number to delete</label>
+    <input type="text" name="del" required>
+    <button type="submit" style="background-color:red; color: white;">Delete now</button>
+  
+  </form>
 {% endblock %}
+
+
     </body>
 </html>

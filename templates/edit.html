@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="">   
+    <label>Enter reg no. to edit</label>
+    <input type="text"  name="reg" value = {{reg}}> 
+<br><label>name</label>
+{% for n in name %}
+    <input type="text"  name="name" value = {{n.s_name}}> 
+    <br>{% endfor %}
+    <button type="submit"onclick="window.location.href = '/info/retrieve';" type="submit" value="Submit request">update</button>
+  </form> 
+
+
+
+{% endblock %}

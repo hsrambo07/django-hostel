@@ -25,7 +25,7 @@ SECRET_KEY = '8y=y8)jt95c7fq09dlyejeg32nbe=3evay%7p742$vk%y0agcq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['7376ecfd69e3.ngrok.io','127.0.0.1','e6492d706bc9.ngrok.io']
 
 
 # Application definition
@@ -76,12 +76,8 @@ WSGI_APPLICATION = 'hostel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbms',
-        'USER': 'root',
-        'PASSWORD': '#hima_bindu#2020',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

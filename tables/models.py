@@ -41,7 +41,7 @@ class Parent(models.Model):
 
 
 class Student(models.Model):
-    reg_no = models.CharField(primary_key=True, max_length=9)
+    reg_no = models.CharField(primary_key=True,max_length=9)
     s_name = models.CharField(max_length=32, blank=True, null=True)
     s_address = models.CharField(max_length=50, blank=True, null=True)
     s_contact = models.CharField(max_length=10, blank=True, null=True)
@@ -49,9 +49,12 @@ class Student(models.Model):
     s_school = models.CharField(max_length=10, blank=True, null=True)
     s_program = models.CharField(max_length=10, blank=True, null=True)
     s_mess = models.ForeignKey(Mess, models.DO_NOTHING, db_column='s_mess', blank=True, null=True)
-    parent_name = models.ForeignKey(Parent, models.DO_NOTHING, db_column='parent_name', blank=True, null=True)
-    s_room_no = models.ForeignKey('Room', models.DO_NOTHING, db_column='s_room_no', blank=True, null=True)
+    parent_name = models.ForeignKey(Parent, db_column='parent_name', blank=True, null=True,on_delete=models.CASCADE)
+    s_room_no = models.ForeignKey('Room',  db_column='s_room_no', blank=True, null=True,on_delete=models.CASCADE)
 
+
+    def __str__(self):
+        return self.reg_no
     class Meta:
         
         db_table = 'student'

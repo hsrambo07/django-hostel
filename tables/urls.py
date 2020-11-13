@@ -11,5 +11,7 @@ urlpatterns = [
     path('mess/',views.mess, name = 'mess'),
     path('parent/',views.parent, name = 'parent'),
     path('retrieve/',views.retrieve, name = 'retrieve'),
+    path('delete/',views.delete, name = 'delete'),
+    path('update/',views.update,name='update'),
 
 ]
