@@ -25,12 +25,13 @@ SECRET_KEY = '8y=y8)jt95c7fq09dlyejeg32nbe=3evay%7p742$vk%y0agcq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['7376ecfd69e3.ngrok.io','127.0.0.1','e6492d706bc9.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'tables.apps.TablesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,4 +126,4 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
